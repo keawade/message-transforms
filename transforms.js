@@ -5,8 +5,9 @@ function buildContent(){
     wrapper.id = 'container';
     
     wrapper.appendChild(makeHeading('Message Transmogrifier'));
-    wrapper.appendChild(makeTextArea('Enter text to transmogrify!'));
+    wrapper.appendChild(makeTextArea('Enter text to transmogrify!', 'text-out'));
     wrapper.appendChild(makeButtonList(options));
+    wrapper.appendChild(makeTextArea('Transmogrified text will show up here!', 'text-out'));
     document.body.appendChild(wrapper);
 }
 
@@ -16,9 +17,12 @@ function makeHeading(string){
     return headingElem;
 }
 
-function makeTextArea(string){
+function makeTextArea(placeholder, classname){
     var textArea = document.createElement('textarea');
-    textArea.placeholder = string;
+    textArea.placeholder = placeholder;
+    if(classname){
+        textArea.className = classname;
+    }
     return textArea;
 }
 
@@ -41,7 +45,7 @@ function makeButtonList(array){
 }
 
 function transmog(event){
-    
+    console.log(event.target.id);
 }
 
 // String manipulations
